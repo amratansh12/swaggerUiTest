@@ -155,6 +155,45 @@ app.get("/retrieve", (req, res) => {
   return res.status(200).json(array);
 })
 
+/**
+ * @swagger
+ * /add/{id}:
+ *  post:
+ *    summary: Adds a new book
+ *    description: This route adds a new book to the list
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema: 
+ *          type: string
+ *        required: true
+ *    responses:
+ *      '200':  
+ *        description: returns the new array
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items: 
+ *                type: object
+ *                properties:
+ *                  id: 
+ *                    type: string
+ *                  description:
+ *                    type: string
+ *              
+ */
+app.post("/add/:id", (req, res) => {
+  const id = req.params.id;
+
+  array.push({
+    id, 
+    description: "New book",
+  });
+
+  return res.status(200).json(array);
+})
+
 app.listen(3000, () => {
   console.log("Server is running")
 })
