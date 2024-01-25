@@ -89,23 +89,23 @@ app.get("/user/:id", (req, res) => {
 
 const array = [
   {
-    id: 1200,
+    id: "1200",
     description: "twelve hundred",
   },
   {
-    id: 1300,
+    id: "1300",
     description: "thirteen hundred",
   },
   {
-    id: 1400,
+    id: "1400",
     description: "fourteen hundred",
   },
   {
-    id: 1500,
+    id: "1500",
     description: "fifteen hundred",
   },
   {
-    id: 1600,
+    id: "1600",
     description: "sixteen hundred",
   },
 ]
@@ -165,7 +165,7 @@ app.get("/retrieve", (req, res) => {
  *      - in: path
  *        name: id
  *        schema: 
- *          type: string
+ *          type: integer
  *        required: true
  *    responses:
  *      '200':  
@@ -185,6 +185,8 @@ app.get("/retrieve", (req, res) => {
  */
 app.post("/add/:id", (req, res) => {
   const id = req.params.id;
+
+  console.log(typeof(id));
 
   array.push({
     id, 
